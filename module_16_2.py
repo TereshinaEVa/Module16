@@ -14,8 +14,8 @@ async def admin_page():
 
 
 @app.get("/user/{username}/{age}")
-async def user_name_age(username: Annotated[str, Path(min_length=5, max_length=20, discrption='Enter username', example='UrbanUser')],
-                        age: int = Path(ge=18, le=120, description='Enter age', example='24')) -> set[str]:
+async def user_name_age(username: Annotated[str, Path(min_length=5, max_length=20, discrption='Enter username', example='UrbanUser')]
+                        , age: Annotated [int, Path(ge=18, le=120, description='Enter age', example='24')]) -> set[str]:
     return {f'Информация о пользователе. Имя: {username}, Возраст {age}'}
 
 @app.get("/user/{user_id}")
